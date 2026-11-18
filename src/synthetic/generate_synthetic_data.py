@@ -8,21 +8,28 @@ DATE_AUDIT = date(2026, 11, 30)
 NUM_USERS = 500
 
 def generate_rh_population():
+
     """Génère la source de vérité RH (Master Data Personnel) et initialise le registre."""
+
+    #.seed() ensures that the code produces the exact same sequence of "random" numbers every time you run it.
+
     fake = Faker('fr_FR')
     Faker.seed(42)
     random.seed(42)
+
     
     rh_data = []
     truth_ledger = []
     departments = ["Finance", "IT", "RH", "Commercial", "Production"]
+
     
     for i in range(1, NUM_USERS + 1):
         matricule = f"M{i:04d}"
         nom = fake.last_name()
         prenom = fake.first_name()
         email = f"{prenom.lower()}.{nom.lower()}@entreprise.ma"
-        
+
+        #generates a random hire date that falls anywhere between 100 and 1,500 days before a specific audit date
         date_embauche = DATE_AUDIT - timedelta(days=random.randint(100, 1500))
         date_depart = None
         statut_contrat = "Actif"
@@ -76,6 +83,7 @@ def generate_rh_population():
     return rh_data, truth_ledger
 
 def generate_ad_accounts(rh_data, truth_ledger):
+
     """Génère les comptes AD en se basant sur les RH, et injecte les pièges IT."""
     ad_data = []
     
@@ -104,6 +112,8 @@ def generate_ad_accounts(rh_data, truth_ledger):
         last_logon = (DATE_AUDIT - timedelta(days=last_logon_days_ago)).strftime("%Y-%m-%d %H:%M:%S")
 
         ad_data.append({
+
+            #pour JohnDoe@entreprise.ma sAMAccountName sera : JahnDoe
             "sAMAccountName": rh_user["email"].split('@')[0],
             "employeeID": rh_user["matricule"],
             "mail": rh_user["email"],
@@ -132,12 +142,55 @@ def generate_ad_accounts(rh_data, truth_ledger):
     return ad_data, truth_ledger
 
 def generate_erp_profiles(rh_data, truth_ledger):
-    """Génère les comptes ERP et injecte les conflits SoD (C-05)."""
+    """Génère les comptes ERP (ex: Odoo) et injecte les conflits SoD (C-05)."""
     erp_data = []
-    # Logique ERP à construire ici
+    
+    # Rôles métiers normaux par département
+    default_roles = {
+        "Finance": "Saisie de facture fournisseur",
+        "IT": "Support technique",
+        "RH": "Gestionnaire RH",
+        "Commercial": "Chargé commercial",
+        "Production": "Opérateur production"
+    }
+    
+    for idx, rh_user in enumerate(rh_data, start=1):
+        user_id = f"ERP_{idx:04d}"
+        login = rh_user["email"].split("@")[0]
+        is_active = 0 if rh_user["statut_contrat"] == "Terminé" else 1
+        last_login = (DATE_AUDIT - timedelta(days=random.randint(1, 30))).strftime("%Y-%m-%d %H:%M:%S")
+        
+        # Par défaut, l'utilisateur reçoit le rôle normal de son département
+        roles_attribues = [default_roles[rh_user["departement"]]]
+        
+        # --- INJECTION C-05 : Conflit SoD (SOD-01) ---
+        if rh_user["statut_contrat"] == "Actif" and rh_user["departement"] == "Finance" and random.random() < 0.05:
+
+            # On lui attribue les deux rôles incompatibles de l'Annexe C
+            roles_attribues = ["Création fournisseur", "Ordonnancement / paiement"]
+            truth_ledger.append({
+                "matricule": rh_user["matricule"],
+                "controle": "C-05",
+                "description": "Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement"
+            })
+            
+        # On crée UNE ligne dans erp_data pour chaque rôle détenu par l'utilisateur
+        for role in roles_attribues:
+            erp_data.append({
+                "user_id": user_id,
+                "login": login,
+                "email": rh_user["email"],
+                "matricule": rh_user["matricule"],
+                "role_name": role,
+                "is_active": is_active,
+                "create_date": rh_user["date_embauche"],
+                "last_login": last_login
+            })
+            
     return erp_data, truth_ledger
 
 def export_to_csv(data_list, filename):
+
     """Exporte les listes de dictionnaires en CSV."""
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     if not data_list:
@@ -148,12 +201,16 @@ def export_to_csv(data_list, filename):
         writer.writerows(data_list)
     print(f"Export complet : {filename}")
 
+
+
 if __name__ == "__main__":
     print("Démarrage de la génération de l'environnement de test MGSI...")
     
     rh_population, ledger = generate_rh_population()
     ad_population, ledger = generate_ad_accounts(rh_population, ledger)
+    erp_population, ledger = generate_erp_profiles(rh_population, ledger)  # <-- Ajouté
     
     export_to_csv(rh_population, "data/synthetic/rh.csv")
     export_to_csv(ad_population, "data/synthetic/ad.csv")
+    export_to_csv(erp_population, "data/synthetic/erp.csv")                # <-- Ajouté
     export_to_csv(ledger, "data/synthetic/ground_truth.csv")

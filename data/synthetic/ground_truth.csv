@@ -1,0 +1,66 @@
+matricule,controle,description
+M0001,C-01,Leaver RH légitime
+M0003,C-06,Mover muté de IT vers Finance
+M0009,C-06,Mover muté de Commercial vers Production
+M0012,C-01,Leaver RH légitime
+M0042,Piege-C01,"Leaver futur, ne doit pas être flaggé en anomalie"
+M0044,C-06,Mover muté de RH vers IT
+M0059,C-06,Mover muté de Production vers Finance
+M0085,C-01,Leaver RH légitime
+M0086,C-01,Leaver RH légitime
+M0104,C-06,Mover muté de Commercial vers Production
+M0136,C-06,Mover muté de RH vers Production
+M0141,C-01,Leaver RH légitime
+M0149,C-06,Mover muté de RH vers IT
+M0159,C-06,Mover muté de Commercial vers Production
+M0181,C-06,Mover muté de Finance vers Production
+M0195,C-01,Leaver RH légitime
+M0203,C-01,Leaver RH légitime
+M0205,C-06,Mover muté de RH vers Production
+M0217,C-01,Leaver RH légitime
+M0226,C-06,Mover muté de RH vers Production
+M0233,C-06,Mover muté de Commercial vers IT
+M0239,C-01,Leaver RH légitime
+M0268,C-06,Mover muté de IT vers Finance
+M0273,C-06,Mover muté de Finance vers Commercial
+M0406,C-01,Leaver RH légitime
+M0409,C-06,Mover muté de RH vers Finance
+M0430,C-06,Mover muté de RH vers IT
+M0454,C-01,Leaver RH légitime
+M0470,C-01,Leaver RH légitime
+M0474,C-01,Leaver RH légitime
+M0480,C-06,Mover muté de IT vers Commercial
+M0011,C-04,Compte dormant (inactif depuis 273 jours)
+M0012,C-01-AD,Compte AD toujours actif pour un employé parti
+M0036,C-04,Compte dormant (inactif depuis 135 jours)
+M0043,C-04,Compte dormant (inactif depuis 167 jours)
+M0054,C-04,Compte dormant (inactif depuis 177 jours)
+M0104,C-04,Compte dormant (inactif depuis 146 jours)
+M0110,C-04,Compte dormant (inactif depuis 195 jours)
+M0125,C-04,Compte dormant (inactif depuis 167 jours)
+M0141,C-01-AD,Compte AD toujours actif pour un employé parti
+M0157,C-04,Compte dormant (inactif depuis 179 jours)
+M0199,C-04,Compte dormant (inactif depuis 147 jours)
+M0203,C-01-AD,Compte AD toujours actif pour un employé parti
+M0217,C-01-AD,Compte AD toujours actif pour un employé parti
+M0220,C-04,Compte dormant (inactif depuis 126 jours)
+M0228,C-04,Compte dormant (inactif depuis 232 jours)
+M0229,C-04,Compte dormant (inactif depuis 226 jours)
+M0231,C-04,Compte dormant (inactif depuis 299 jours)
+M0239,C-01-AD,Compte AD toujours actif pour un employé parti
+M0254,C-04,Compte dormant (inactif depuis 145 jours)
+M0257,C-04,Compte dormant (inactif depuis 110 jours)
+M0260,C-04,Compte dormant (inactif depuis 171 jours)
+M0297,C-04,Compte dormant (inactif depuis 181 jours)
+M0441,C-04,Compte dormant (inactif depuis 275 jours)
+M0470,C-01-AD,Compte AD toujours actif pour un employé parti
+M0495,C-04,Compte dormant (inactif depuis 116 jours)
+M0497,C-04,Compte dormant (inactif depuis 131 jours)
+ORPH001,C-02,Compte orphelin actif totalement inconnu des RH
+ORPH002,C-02,Compte orphelin actif totalement inconnu des RH
+ORPH003,C-02,Compte orphelin actif totalement inconnu des RH
+ORPH004,C-02,Compte orphelin actif totalement inconnu des RH
+M0118,C-05,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
+M0214,C-05,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
+M0282,C-05,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
+M0402,C-05,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
