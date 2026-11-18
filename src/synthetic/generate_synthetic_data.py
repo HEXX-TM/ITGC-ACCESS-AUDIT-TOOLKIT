@@ -1,8 +1,10 @@
+#file name : generate_synthetic_data.py
 import csv
 import random
 from faker import Faker
 from datetime import date, timedelta
 import os
+
 
 DATE_AUDIT = date(2026, 11, 30)
 NUM_USERS = 500
