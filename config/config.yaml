@@ -1,0 +1,31 @@
+# config/config.yaml
+# Paramétrage unique de l'outil d'audit des accès (CDC-ITGC-2026-V2.0, § 5.1 et Annexe B).
+# Aucune valeur n'est codée en dur dans les scripts : toute modification ici
+# doit produire un nouvel identifiant d'exécution.
+
+audit:
+  date_audit: "2026-11-30"       # date de référence unique (obligatoire), format ISO
+  periode_debut: "2026-01-01"    # début de période d'analyse des mutations (C-06)
+
+seuils:
+  dormant_jours: 90              # C-04 : seuil d'inactivité
+  marge_replication_ad_jours: 14 # zone "à confirmer" de 90 à 104 jours (réplication lastLogonTimestamp)
+  tolerance_joiner_jours: 7      # C-02b : avance tolérée entre création du compte et embauche
+  roles_par_utilisateur_max: 5   # C-06b : seuil de sur-habilitation
+  revue_privilegies_jours: 365   # C-07c : périodicité maximale de revue des comptes privilégiés
+  fraicheur_extraction_jours: 7  # IPE : écart max entre extraction des sources et date d'audit
+
+generiques:
+  patterns_regex:                # insensibles à la casse (C-03)
+    - "^(admin|administrator|root|test|tmp|temp|demo|guest)([._-]?[0-9]*)$"
+    - "^(stagiaire|compta|rh|support|backup|shared|partage)[a-z._-]*[0-9]*$"
+
+privileges:
+  groupes_ad: ["Domain Admins", "Enterprise Admins", "Schema Admins", "Administrators"]
+  roles_erp: ["Administrateur systeme", "Gestionnaire des droits"]
+
+fichiers:
+  sod_matrix: "config/sod_matrix.csv"
+  role_department_map: "config/role_department_map.csv"
+  service_accounts: "config/service_accounts.csv"
+  privileged_register: "config/privileged_register.csv"

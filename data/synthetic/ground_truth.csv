@@ -1,66 +1,50 @@
-matricule,controle,description
-M0001,C-01,Leaver RH légitime
-M0003,C-06,Mover muté de IT vers Finance
-M0009,C-06,Mover muté de Commercial vers Production
-M0012,C-01,Leaver RH légitime
-M0042,Piege-C01,"Leaver futur, ne doit pas être flaggé en anomalie"
-M0044,C-06,Mover muté de RH vers IT
-M0059,C-06,Mover muté de Production vers Finance
-M0085,C-01,Leaver RH légitime
-M0086,C-01,Leaver RH légitime
-M0104,C-06,Mover muté de Commercial vers Production
-M0136,C-06,Mover muté de RH vers Production
-M0141,C-01,Leaver RH légitime
-M0149,C-06,Mover muté de RH vers IT
-M0159,C-06,Mover muté de Commercial vers Production
-M0181,C-06,Mover muté de Finance vers Production
-M0195,C-01,Leaver RH légitime
-M0203,C-01,Leaver RH légitime
-M0205,C-06,Mover muté de RH vers Production
-M0217,C-01,Leaver RH légitime
-M0226,C-06,Mover muté de RH vers Production
-M0233,C-06,Mover muté de Commercial vers IT
-M0239,C-01,Leaver RH légitime
-M0268,C-06,Mover muté de IT vers Finance
-M0273,C-06,Mover muté de Finance vers Commercial
-M0406,C-01,Leaver RH légitime
-M0409,C-06,Mover muté de RH vers Finance
-M0430,C-06,Mover muté de RH vers IT
-M0454,C-01,Leaver RH légitime
-M0470,C-01,Leaver RH légitime
-M0474,C-01,Leaver RH légitime
-M0480,C-06,Mover muté de IT vers Commercial
-M0011,C-04,Compte dormant (inactif depuis 273 jours)
-M0012,C-01-AD,Compte AD toujours actif pour un employé parti
-M0036,C-04,Compte dormant (inactif depuis 135 jours)
-M0043,C-04,Compte dormant (inactif depuis 167 jours)
-M0054,C-04,Compte dormant (inactif depuis 177 jours)
-M0104,C-04,Compte dormant (inactif depuis 146 jours)
-M0110,C-04,Compte dormant (inactif depuis 195 jours)
-M0125,C-04,Compte dormant (inactif depuis 167 jours)
-M0141,C-01-AD,Compte AD toujours actif pour un employé parti
-M0157,C-04,Compte dormant (inactif depuis 179 jours)
-M0199,C-04,Compte dormant (inactif depuis 147 jours)
-M0203,C-01-AD,Compte AD toujours actif pour un employé parti
-M0217,C-01-AD,Compte AD toujours actif pour un employé parti
-M0220,C-04,Compte dormant (inactif depuis 126 jours)
-M0228,C-04,Compte dormant (inactif depuis 232 jours)
-M0229,C-04,Compte dormant (inactif depuis 226 jours)
-M0231,C-04,Compte dormant (inactif depuis 299 jours)
-M0239,C-01-AD,Compte AD toujours actif pour un employé parti
-M0254,C-04,Compte dormant (inactif depuis 145 jours)
-M0257,C-04,Compte dormant (inactif depuis 110 jours)
-M0260,C-04,Compte dormant (inactif depuis 171 jours)
-M0297,C-04,Compte dormant (inactif depuis 181 jours)
-M0441,C-04,Compte dormant (inactif depuis 275 jours)
-M0470,C-01-AD,Compte AD toujours actif pour un employé parti
-M0495,C-04,Compte dormant (inactif depuis 116 jours)
-M0497,C-04,Compte dormant (inactif depuis 131 jours)
-ORPH001,C-02,Compte orphelin actif totalement inconnu des RH
-ORPH002,C-02,Compte orphelin actif totalement inconnu des RH
-ORPH003,C-02,Compte orphelin actif totalement inconnu des RH
-ORPH004,C-02,Compte orphelin actif totalement inconnu des RH
-M0118,C-05,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
-M0214,C-05,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
-M0282,C-05,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
-M0402,C-05,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
+account_id,source,matricule,controle,sous_controle,attendu,statut_attendu,description
+remy.ferreira,AD,M0226,C-01,,anomalie,confirmé,Leaver (départ le 2026-09-01) : compte AD actif ; connexion après le départ (facteur aggravant)
+roger.pinto,AD,M0161,C-01,,anomalie,confirmé,Leaver (départ le 2026-10-22) : compte AD actif
+ERP_0215,ERP,M0215,C-01,,anomalie,confirmé,Leaver (départ le 2026-11-12) : compte ERP actif ; connexion après le départ (facteur aggravant)
+ERP_0078,ERP,M0078,C-01,,anomalie,confirmé,Leaver (départ le 2026-11-01) : compte ERP actif
+eugene.legrand,AD,M0212,C-01,,anomalie,confirmé,Leaver (départ le 2026-11-19) : compte AD actif ; connexion après le départ (facteur aggravant)
+ERP_0212,ERP,M0212,C-01,,anomalie,confirmé,Leaver (départ le 2026-11-19) : compte ERP actif ; connexion après le départ (facteur aggravant)
+paul.riviere,AD,M0354,C-01,,anomalie,confirmé,Leaver (départ le 2026-10-24) : compte AD actif
+ERP_0354,ERP,M0354,C-01,,anomalie,confirmé,Leaver (départ le 2026-10-24) : compte ERP actif
+nicole.pichon,AD,M0242,C-01,,non_anomalie,,Piège : départ planifié le 2026-12-15 (postérieur à la date d'audit)
+ERP_0242,ERP,M0242,C-01,,non_anomalie,,Piège : départ planifié le 2026-12-15 (postérieur à la date d'audit)
+jeanne.blot,AD,M0447,C-02,C-02b,anomalie,confirmé,Joiner anormal : compte créé 31 j avant l'embauche (tolérance 7 j)
+martine.boucher,AD,M0435,C-02,C-02b,anomalie,confirmé,Joiner anormal : compte créé 10 j avant l'embauche (tolérance 7 j)
+ERP_0377,ERP,M0377,C-02,C-02b,anomalie,confirmé,Joiner anormal : compte créé 27 j avant l'embauche (tolérance 7 j)
+brigitte.garnier,AD,M0373,C-02,C-02b,non_anomalie,,Piège : compte créé 5 j avant l'embauche (dans la tolérance)
+francoise.cousin,AD,M0032,C-02,C-02a,non_anomalie,,"Piège : email AD modifié (état civil), rapprochement par matricule"
+corinne.launay,AD,M0362,C-04,,anomalie,à confirmer,Compte dormant AD (inactif depuis 91 jours)
+remy.letellier,AD,M0071,C-04,,anomalie,confirmé,Compte dormant AD (inactif depuis 105 jours)
+nathalie.menard,AD,M0266,C-04,,anomalie,confirmé,Compte dormant AD (inactif depuis 220 jours)
+ERP_0107,ERP,M0107,C-04,,anomalie,à confirmer,Compte dormant ERP (inactif depuis 104 jours)
+ERP_0288,ERP,M0288,C-04,,anomalie,confirmé,Compte dormant ERP (inactif depuis 180 jours)
+eric.chretien,AD,M0167,C-04,,non_anomalie,,Piège : inactif depuis exactement 90 jours (seuil non dépassé)
+david.pineau,AD,M0340,C-04,,anomalie,confirmé,"Compte jamais connecté, créé il y a 150 jours"
+alain.marie,AD,M0245,C-04,,non_anomalie,,Piège : compte jamais connecté mais créé il y a 20 jours
+ERP_0270,ERP,M0270,C-05,SOD-01,anomalie,confirmé,Conflit SOD-01 : Création fournisseur + Ordonnancement / paiement
+ERP_0193,ERP,M0193,C-05,SOD-03,anomalie,confirmé,Conflit SOD-03 : Saisie de facture fournisseur + Validation / approbation de facture
+ERP_0499,ERP,M0499,C-05,SOD-05,anomalie,confirmé,Conflit SOD-05 : Administration système ERP + Rôle comptable (saisie / validation)
+ERP_0089,ERP,M0089,C-05,SOD-06,anomalie,confirmé,Conflit SOD-06 : Modification de salaire (paie) + Validation de la paie
+ERP_0236,ERP,M0236,C-06,C-06a,anomalie,confirmé,Mover Production -> IT : rôle ERP résiduel « Opérateur production »
+eric.couturier,AD,M0236,C-06,C-06a,anomalie,confirmé,Mover Production -> IT : groupe AD résiduel GRP_Production
+ERP_0468,ERP,M0468,C-06,C-06a,anomalie,confirmé,Mover Finance -> Commercial : rôle ERP résiduel « Saisie de facture fournisseur »
+adele.schneider,AD,M0273,C-06,C-06a,anomalie,confirmé,Mover Commercial -> RH : groupe AD résiduel GRP_Commercial
+ERP_0176,ERP,M0176,C-06,C-06a,anomalie,confirmé,Mover Finance -> RH : rôle ERP résiduel « Saisie de facture fournisseur »
+sebastien.briand,AD,M0176,C-06,C-06a,anomalie,confirmé,Mover Finance -> RH : groupe AD résiduel GRP_Finance
+adele.clerc,AD,M0280,C-06,C-06a,non_anomalie,,Piège : mover Production -> IT conforme (nouveau département + socle commun)
+ERP_0280,ERP,M0280,C-06,C-06a,non_anomalie,,Piège : mover Production -> IT conforme (nouveau département + socle commun)
+martin.boyer,AD,M0182,C-07,C-07b,anomalie,confirmé,Compte privilégié (Administrators) absent du registre approuvé
+ERP_0347,ERP,M0347,C-07,C-07c,anomalie,confirmé,Rôle admin ERP : dernière revue le 2025-07-03 (> 365 j)
+nathalie.morvan,AD,M0396,C-07,,non_anomalie,,"Piège : compte privilégié nominatif, au registre, revue à jour"
+thibault.dupre,AD,,C-02,C-02a,anomalie,confirmé,Compte orphelin AD actif : aucun enregistrement RH
+ines.tessier,AD,,C-02,C-02a,anomalie,confirmé,Compte orphelin AD actif : aucun enregistrement RH
+christelle.lenoir,AD,,C-02,C-02a,anomalie,confirmé,Compte orphelin AD actif : aucun enregistrement RH
+ERP_0501,ERP,,C-02,C-02a,anomalie,confirmé,Compte orphelin ERP actif : aucun enregistrement RH
+ERP_0502,ERP,,C-02,C-02a,anomalie,confirmé,Compte orphelin ERP actif : aucun enregistrement RH
+admin,AD,,C-03,,anomalie,confirmé,Compte générique « admin » non justifié
+compta_02,AD,,C-03,,anomalie,confirmé,Compte générique « compta_02 » non justifié
+ERP_0503,ERP,,C-03,,anomalie,confirmé,Compte générique « stagiaire_01 » non justifié
+svc_backup,AD,,C-03,,non_anomalie,,Piège : compte de service légitime inscrit au registre avec propriétaire
+adm.infra,AD,,C-07,C-07a,anomalie,confirmé,Compte privilégié (Domain Admins) non nominatif
+adm.infra,AD,,C-03,C-03b,anomalie,confirmé,Compte non nominatif sans matricule (chevauchement avec C-07a)
